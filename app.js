@@ -19,10 +19,11 @@ app.use((req, res, next) => { // defaults for ejs code
 
 // gets apps main
 app.get("/app/:name/", (req, res) => {
-	let path = `${__dirname}/apps/${req.params.name}`; // app path
+	let name = req.params.name.toLowerCase().replace(" ", "-");
+	let path = `${__dirname}/apps/${name}`; // app path
 
-	if (existsSync(`${__dirname}/apps/${req.params.name}/properties.json`)) {
-		prop = require(`${__dirname}/apps/${req.params.name}/properties.json`); // app properties loaded
+	if (existsSync(`${__dirname}/apps/${name}/properties.json`)) {
+		prop = require(`${__dirname}/apps/${name}/properties.json`); // app properties loaded
 	} else {
 		return res.status(404); // app properties not found
 	}
@@ -37,7 +38,8 @@ app.get("/app/:name/", (req, res) => {
 
 // gets apps files
 app.get("/app/:name/*", (req, res) => {
-	let path = `${__dirname}/apps/${req.params.name}/${req.path.replace(`/app/${req.params.name}/`, "")}`; // files path
+	let name = req.params.name.toLowerCase().replace(" ", "-");
+	let path = `${__dirname}/apps/${name}/${req.path.replace(`/app/${name}/`, "")}`; // files path
 
 	if (existsSync(path)) return res.sendFile(path); // send apps file
 	else return res.status(404);
