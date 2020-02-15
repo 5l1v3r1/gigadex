@@ -1,3 +1,5 @@
 {
-  "main": "index.html"
+  "name": "Clock",
+  "main": "index.html",
+  "author": "Gigadex Team"
 }

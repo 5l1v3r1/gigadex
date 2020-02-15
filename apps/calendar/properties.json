@@ -1,3 +1,5 @@
 {
-  "main": "index.html"
+  "name": "Calendar",
+  "main": "index.html",
+  "author": "Gigadex Team"
 }

@@ -1,3 +1,5 @@
 {
-  "main": "index.html"
+  "name": "Settings",
+  "main": "index.html",
+  "author": "Gigadex Team"
 }

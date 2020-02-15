@@ -1,0 +1,19 @@
+<% for (let app of apps) { %>
+	<% if (app.name === 'home') { %>
+		<div class="taskbar-item taskbar-home">
+	<% } else if (app.name === 'settings') { %>
+		<div class="taskbar-item taskbar-settings">
+	<% } else { %>
+		<div class="taskbar-item">
+	<% } %>
+		<a href="/app/<%= app.name %>/">
+			<% if(!app.icon) { %>
+				<img src="/defaults/unknown.png" />
+			<% } else { %>
+				<img src="<%= app.icon %>" />
+			<% } %>
+			
+			<span><%= app.name %></span>
+		</a>
+	</div>
+<% } %>
