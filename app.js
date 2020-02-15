@@ -11,7 +11,7 @@ app.get("/app/:name/", (req, res) => {
   if(existsSync(`${__dirname}/apps/${req.params.name}/properties.json`)) prop = require(`${__dirname}/apps/${req.params.name}/properties.json`); // app properties loaded
   else return res.status(404); // app properties not found
 
-  if(existsSync(path)) return res.sendFile(`${path}/${prop.load}`); // apps main sent
+  if(existsSync(path)) return res.sendFile(`${path}/${prop.main}`); // apps main sent
   else return res.status(404); // apps main not found
 });
 
