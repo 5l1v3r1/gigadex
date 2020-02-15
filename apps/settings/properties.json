@@ -1,5 +1,6 @@
 {
   "name": "Settings",
   "main": "index.html",
-  "author": "Gigadex Team"
+  "author": "Gigadex Team",
+  "icon": "icon.png"
 }

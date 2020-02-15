@@ -38,11 +38,16 @@ app.get("/app/:name/", (req, res) => {
 
 // gets apps files
 app.get("/app/:name/*", (req, res) => {
-	let name = req.params.name.toLowerCase().replace(" ", "-");
+	let name = req.params.name;
 	let path = `${__dirname}/apps/${name}/${req.path.replace(`/app/${name}/`, "")}`; // files path
 
 	if (existsSync(path)) return res.sendFile(path); // send apps file
 	else return res.status(404);
+});
+
+// get default files
+app.get("/defaults/:name/", (req, res) => {
+	return res.sendFile(`${__dirname}/defaults/${req.params.name}`);
 });
 
 /* api */
